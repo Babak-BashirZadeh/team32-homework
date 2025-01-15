@@ -1,0 +1,150 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f9;
+}
+.navicon{
+padding:5px;
+}
+nav {
+  background: #333;
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #f4a261;
+}
+
+header {
+  background: #264653;
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.namespan {
+color:red
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+section {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.about {
+text-align: justify;
+text-justify: inter-word;
+margin: 20px;
+}
+section h2 {
+  color: #264653;
+  border-bottom: 2px solid #f4a261;
+  padding-bottom: 10px;
+}
+.skillitem{
+display: flex;
+flex-direction: row;
+gap: 15px;
+justify-content: center;
+background-color: #f1f1f1;
+margin: 10px;
+padding: 20px;
+}
+.item {
+width: auto;
+height: auto;
+background-color: lightblue;
+padding: 1em;
+font-weight: 700;
+text-align: center;
+border-radius: 10px;
+}
+
+.project {
+  margin: 20px 0;
+}
+
+.project a {
+  color: #e76f51;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}
+
+button {
+background-color: green;
+border: none;
+color: white;
+padding: 10px 20px;
+font-size: 1.5em;
+border-radius: 10px;
+font-weight: bold;
+}
+
+#button:hover {
+background-color: #27ae60;
+transition: background-color 0.3s;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+      font-size: 2rem;
+  }
+
+  .navbar {
+      flex-direction: column;
+  }
+
+  .navbar li {
+      margin: 10px 0;
+  }
+}
