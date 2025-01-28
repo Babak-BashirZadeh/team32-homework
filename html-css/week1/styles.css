@@ -118,7 +118,7 @@ border-radius: 10px;
   text-decoration: underline;
 }
 
-button {
+#button {
 background-color: green;
 border: none;
 color: white;
