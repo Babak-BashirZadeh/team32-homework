@@ -6,9 +6,11 @@ body {
   color: #333;
   background-color: #f4f4f9;
 }
+
 .navicon{
 padding:5px;
 }
+
 nav {
   background: #333;
   color: #fff;
@@ -69,16 +71,19 @@ section {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .about {
 text-align: justify;
 text-justify: inter-word;
 margin: 20px;
 }
+
 section h2 {
   color: #264653;
   border-bottom: 2px solid #f4a261;
   padding-bottom: 10px;
 }
+
 .skillitem{
 display: flex;
 flex-direction: row;
@@ -88,6 +93,7 @@ background-color: #f1f1f1;
 margin: 10px;
 padding: 20px;
 }
+
 .item {
 width: auto;
 height: auto;
