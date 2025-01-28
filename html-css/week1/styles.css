@@ -141,7 +141,7 @@ footer {
   }
 
   .navbar {
-      flex-direction: column;
+      flex-wrap: wrap;
   }
 
   .navbar li {
