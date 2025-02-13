@@ -1,5 +1,5 @@
 function wearType(temperature) {
-    if (temperature < 0) {
+    if (temperature <= 0) {
         return "Wear a coat, hat, scarf and gloves";
     } else if (temperature < 10) {
         return "Wear a coat and bring a hat";
