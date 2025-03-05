@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        .correct {
+            background-color: green;
+            color: white;
+        }
+        .wrong {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form id="playerInfo">
+        <label for="playerName">Player Name:</label>
+        <input type="text" id="playerName" name="playerName" required><br><br>
+
+        <label for="playerScore">Player Score:</label>
+    </form>
+    <form id="quiz-form">
+        <label for="question">Question (max 140 characters):</label>
+        <input type="text" id="question" name="question" maxlength="140" required><br><br>
+
+        <label for="option1">Option 1:</label>
+        <input type="text" id="option1" name="option1" required>
+        <input type="radio" name="correct" value="0"><br><br>
+
+        <label for="option2">Option 2:</label>
+        <input type="text" id="option2" name="option2" required>
+        <input type="radio" name="correct" value="1"><br><br>
+
+        <label for="option3">Option 3:</label>
+        <input type="text" id="option3" name="option3" required>
+        <input type="radio" name="correct" value="2"><br><br>
+
+        <label for="option4">Option 4:</label>
+        <input type="text" id="option4" name="option4" required>
+        <input type="radio" name="correct" value="3"><br><br>
+
+        <button type="button" id="randomize">Randomize Options</button>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="quiz-app.js"></script>
+</body>
+</html>
