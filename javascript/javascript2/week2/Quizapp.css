@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+
+body{
+  font-family: 'Comfortaa', cursive;
+  display: flex;
+  justify-content: space-between;
+}
+
+.questionform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 5px;
+  border: solid 1px rgb(0, 209, 153);
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 5px;
+  border: solid 1px rgb(0, 209, 153);
+}
+
+.option {
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: white;
+  
+  &:hover:not([disabled]){
+    background-color: whitesmoke;
+    
+    span{
+      background:rgb(0, 209, 153);
+      color: white;
+    }
+  }
+}
+option:disabled{
+  cursor: not-allowed;
+}
+.option span{  
+  border-radius: 5px;
+  border: solid 1px rgb(0, 209, 153);
+  padding: .2rem .5rem 0;
+  width: 2.5rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: rgb(0, 209, 153);
+}
+
+.navigation{
+  &:before, &:after{
+    content: ' - ';
+  }
+}
+
+.nextbtn {
+    border-radius: 5px;
+    border: solid 1px rgb(0, 209, 153);
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+}
+

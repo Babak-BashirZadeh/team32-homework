@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./Quizapp copy.css">
+</head>
+<body>
+    <form class="questionform">
+        <label for="questionText">Enter your question (max 140 Characters)</label>
+        <input type="text" id="questionText" name="question" maxlength="140" required>
+
+        <label for="option1">Enter option A</label>
+        <input type="text" id="option1" name="option1" required>
+
+        <label for="option2">Enter option 2</label>
+        <input type="text" id="option2" name="option2" required>
+
+        <label for="option3">Enter option 3</label>
+        <input type="text" id="option3" name="option3" required>
+
+        <label for="option4">Enter option 4</label>
+        <input type="text" id="option4" name="option4" required>
+
+        <label for="explaination">Enter your explaination</label>
+        <input type="text" id="explaination" name="explaination" required>
+
+        <label for="correctanswer">Enter correct answer</label>
+        <select name="correctanswer" id="correctanswer" required>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+          <option value="option4">Option 4</option>
+        </select>
+        <button type="button" onclick="randomizeOptions()">Randomize Options</button>
+        <button type="submit">Add another question</button>
+        <button type="submit">Start Quiz</button>
+    </form>
+    <section class="quiz">
+            <div class="questioncontainer">
+                <h1>Quiz App</h1>
+                <h3 class="navquestion">QUESTION 1 OF 1</h3>
+                <h2 id="question">What does CSS stand for?</h2>
+                <div id="answer-btn">
+                <button class="option">
+                  <span>A</span> answer A
+                </button>
+                <button class="option">
+                  <span>B</span> answer B
+                </button>
+                <button class="option">
+                  <span>C</span> answer C
+                </button>
+                <button class="option">
+                  <span>D</span>  answer D
+                </button>
+              </div>
+                <button id="revealanswer">Reveal Answer</button>
+                <button id="nextbtn">Next Question</button>
+        </div>
+      </section>
+      <script src="./Quizapp copy.js"></script>
+</body>
+</html>
