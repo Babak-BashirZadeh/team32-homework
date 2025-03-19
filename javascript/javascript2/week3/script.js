@@ -1,4 +1,4 @@
-// نوار پیشرفت
+// progress bar
 const progressBar = document.querySelector(".progress-bar");
 window.addEventListener("scroll", () => {
   const windowHeight =
@@ -7,10 +7,10 @@ window.addEventListener("scroll", () => {
   progressBar.style.transform = `scaleX(${scrolled / 100})`;
 });
 
-// آرایه‌ای برای نگهداری سوالات
+// questions array
 let questions = [];
 
-// انتخاب المان‌های DOM
+// DOM elements
 const quizForm = document.getElementById("quizForm");
 const questionsContainer = document.getElementById("questionsContainer");
 const randomizeButton = document.getElementById("randomizeOptions");
@@ -27,7 +27,7 @@ const player2Display = document.getElementById("player2Display");
 const player1Score = document.getElementById("player1Score");
 const player2Score = document.getElementById("player2Score");
 
-// مدیریت فرم
+// form submission
 quizForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -55,7 +55,7 @@ quizForm.addEventListener("submit", (e) => {
   quizForm.reset();
 });
 
-// نمایش سوالات
+// display question
 function displayQuestions(questionsToShow = questions) {
   questionsContainer.innerHTML = "";
 
@@ -83,7 +83,7 @@ function displayQuestions(questionsToShow = questions) {
   });
 }
 
-// نمایش پاسخ صحیح
+// display correct answer
 function revealAnswer(questionId) {
   const question = questions.find((q) => q.id === questionId);
   const questionCard = document.querySelector(
@@ -100,7 +100,7 @@ function revealAnswer(questionId) {
   });
 }
 
-// تصادفی کردن گزینه‌ها
+// randomize options
 randomizeButton.addEventListener("click", () => {
   const options = Array.from(
     document.querySelectorAll(".options-container .form-group")
@@ -112,7 +112,7 @@ randomizeButton.addEventListener("click", () => {
   shuffledOptions.forEach((option) => container.appendChild(option));
 });
 
-// جستجوی سوالات
+// filter questions
 searchButton.addEventListener("click", () => {
   const searchTerm = searchInput.value.toLowerCase();
   const filteredQuestions = questions.filter((q) =>
@@ -121,7 +121,7 @@ searchButton.addEventListener("click", () => {
   displayQuestions(filteredQuestions);
 });
 
-// مرتب‌سازی الفبایی
+// alphabetical sort
 sortAlphabeticalButton.addEventListener("click", () => {
   const sortedQuestions = [...questions].sort((a, b) =>
     a.question.localeCompare(b.question)
@@ -129,13 +129,13 @@ sortAlphabeticalButton.addEventListener("click", () => {
   displayQuestions(sortedQuestions);
 });
 
-// مرتب‌سازی تصادفی
+// randomize sort
 sortRandomButton.addEventListener("click", () => {
   const shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
   displayQuestions(shuffledQuestions);
 });
 
-// مدیریت بازی
+// quiz management
 let gameStarted = false;
 let player1Points = 0;
 let player2Points = 0;
@@ -156,7 +156,7 @@ startGameButton.addEventListener("click", () => {
   player2Points = 0;
 });
 
-// مدیریت امتیازات
+// score
 document.querySelectorAll(".correct-btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     if (!gameStarted) return;
@@ -191,7 +191,7 @@ document.querySelectorAll(".wrong-btn").forEach((btn) => {
   });
 });
 
-// بررسی پایان بازی
+// end game
 function checkGameEnd() {
   if (player1Points >= 10 || player2Points >= 10) {
     const winner = player1Points >= 10 ? player1Name.value : player2Name.value;
