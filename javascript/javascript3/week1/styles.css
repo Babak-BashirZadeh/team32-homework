@@ -232,7 +232,7 @@ button:active {
   display: none;
 }
 
-/* correct and wrong style color*/
+/* correct and wrong style */
 .correct-answer {
   background: rgba(42, 157, 143, 0.1) !important;
   color: var(--primary-color);

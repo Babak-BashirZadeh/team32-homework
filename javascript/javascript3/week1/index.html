@@ -15,7 +15,7 @@
     <div class="container">
       <h1>Quiz App</h1>
 
-      <!-- question form -->
+      <!-- add question form -->
       <div class="question-form">
         <h2>Add New Question</h2>
         <form id="quizForm">
@@ -54,12 +54,18 @@
             </div>
           </div>
 
+          <div class="form-group">
+            <label for="explanation">Explanation</label>
+            <input type="text" id="explanation" required maxlength="140" />
+          </div>
+
           <button type="submit">Add Question</button>
           <button type="button" id="randomizeOptions">Randomize Options</button>
+          <button type="button" id="showQuestions">Show Questions</button>
         </form>
       </div>
 
-      <!-- filter and sort -->
+      <!-- sorting -->
       <div class="search-sort">
         <input type="text" id="searchInput" placeholder="Search questions..." />
         <button id="searchButton">Search</button>
@@ -67,13 +73,13 @@
         <button id="sortRandom">Sort Randomly</button>
       </div>
 
-      <!-- question list -->
+      <!-- question lists -->
       <div class="questions-list">
         <h2>Questions</h2>
         <div id="questionsContainer"></div>
       </div>
-      
-      <!-- quiz game -->
+
+      <!-- playing game -->
       <div class="game-section">
         <h2>Game</h2>
         <div class="player-setup">

@@ -1,4 +1,4 @@
-// navbar
+// progress bar
 const progressBar = document.querySelector(".progress-bar");
 window.addEventListener("scroll", () => {
   const windowHeight =
@@ -6,11 +6,15 @@ window.addEventListener("scroll", () => {
   const scrolled = (window.scrollY / windowHeight) * 100;
   progressBar.style.transform = `scaleX(${scrolled / 100})`;
 });
+//API for fetching data
+
+const url = "https://raw.githubusercontent.com/Babak-BashirZadeh/quizappAPI/refs/heads/main/app.json";
 
 // question array
 let questions = [];
 
-// DOM elements
+
+// DOM Elements
 const quizForm = document.getElementById("quizForm");
 const questionsContainer = document.getElementById("questionsContainer");
 const randomizeButton = document.getElementById("randomizeOptions");
@@ -26,8 +30,19 @@ const player1Display = document.getElementById("player1Display");
 const player2Display = document.getElementById("player2Display");
 const player1Score = document.getElementById("player1Score");
 const player2Score = document.getElementById("player2Score");
+const showQuestionsButton = document.getElementById("showQuestions");
 
-// form submission
+// show questions
+showQuestionsButton.addEventListener("click", () => {
+  fetch(url)
+  .then((res) => res.json())
+  .then((data) => {
+    questions = questions.concat(data);
+    displayQuestions();
+  });
+});
+
+// form submit
 quizForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -44,10 +59,13 @@ quizForm.addEventListener("submit", (e) => {
   );
   options[correctIndex].isCorrect = true;
 
+  const explanation = document.getElementById("explanation").value;
+
   const newQuestion = {
     id: questions.length + 1,
     question,
     options,
+    explanation,
   };
 
   questions.push(newQuestion);
@@ -74,11 +92,12 @@ function displayQuestions(questionsToShow = questions) {
                   )
                   .join("")}
             </ul>
+            <h3>Explanation: ${question.explanation}</h3>
             <button class="reveal-btn" onclick="revealAnswer(${
               question.id
             })">Show Correct Answer</button>
         `;
-
+             
     questionsContainer.appendChild(questionCard);
   });
 }
@@ -98,6 +117,11 @@ function revealAnswer(questionId) {
       option.classList.add("wrong-answer");
     }
   });
+
+  const explanations = questionCard.querySelectorAll("h3");
+  explanations.forEach((explanation) => {
+    explanation.classList.remove("hidden");
+  });
 }
 
 // randomize options
@@ -112,7 +136,7 @@ randomizeButton.addEventListener("click", () => {
   shuffledOptions.forEach((option) => container.appendChild(option));
 });
 
-// question search
+// search questions
 searchButton.addEventListener("click", () => {
   const searchTerm = searchInput.value.toLowerCase();
   const filteredQuestions = questions.filter((q) =>
@@ -121,7 +145,7 @@ searchButton.addEventListener("click", () => {
   displayQuestions(filteredQuestions);
 });
 
-// alphabetical sort  
+// alphabetical sort
 sortAlphabeticalButton.addEventListener("click", () => {
   const sortedQuestions = [...questions].sort((a, b) =>
     a.question.localeCompare(b.question)
@@ -129,13 +153,13 @@ sortAlphabeticalButton.addEventListener("click", () => {
   displayQuestions(sortedQuestions);
 });
 
-// random sort
+// randomized sort
 sortRandomButton.addEventListener("click", () => {
   const shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
   displayQuestions(shuffledQuestions);
 });
 
-// qiuz game
+// game management
 let gameStarted = false;
 let player1Points = 0;
 let player2Points = 0;
@@ -156,7 +180,7 @@ startGameButton.addEventListener("click", () => {
   player2Points = 0;
 });
 
-// score calculation
+// score management
 document.querySelectorAll(".correct-btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     if (!gameStarted) return;
@@ -191,7 +215,7 @@ document.querySelectorAll(".wrong-btn").forEach((btn) => {
   });
 });
 
-// end game
+// end game check
 function checkGameEnd() {
   if (player1Points >= 10 || player2Points >= 10) {
     const winner = player1Points >= 10 ? player1Name.value : player2Name.value;

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Question Form</title>
+    <link rel="stylesheet" href="./Quizapp-copy - Copy (2).css">
+</head>
+<body>
+    <h2>Create a Quiz Question</h2>
+    <label for="question">Question (max 140 characters):</label>
+    <input type="text" id="question" maxlength="140">
+    
+    <div id="options">
+        <div class="option"><input type="text" class="answer" placeholder="Option 1"></div>
+        <div class="option"><input type="text" class="answer" placeholder="Option 2"></div>
+        <div class="option"><input type="text" class="answer" placeholder="Option 3"></div>
+        <div class="option"><input type="text" class="answer" placeholder="Option 4"></div>
+    </div>
+    <div>
+    <label for="explaination">Explaination</label>
+    <input type="text" id="explaination" maxlength="140">
+    </div>
+    <label for="correctAnswer">Select Correct Answer:</label>
+    <select id="correctAnswer" onchange="setCorrect()">
+        <option value="-1">-- Select an option --</option>
+        <option value="0">Option 1</option>
+        <option value="1">Option 2</option>
+        <option value="2">Option 3</option>
+        <option value="3">Option 4</option>
+    </select>
+    <div class="button">
+    <button onclick="randomizeOptions()">Randomize Options</button>
+    <button onclick="submitQuestion()">Submit Question</button>
+  </div>
+    <script src="./quiz-app.js"></script>
+</body>
+</html>

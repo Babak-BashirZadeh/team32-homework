@@ -1,6 +1,6 @@
 const class07Students = [];
 function addStudentToClass(studentName) {
-    if (studentName === "") {
+    if (!studentName) {
         return "Please enter a valid name";
     } else if (class07Students.includes(studentName)) {
         return "Student is already in the class";
