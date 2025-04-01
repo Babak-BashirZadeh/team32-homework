@@ -6,7 +6,7 @@ window.addEventListener("scroll", () => {
   const scrolled = (window.scrollY / windowHeight) * 100;
   progressBar.style.transform = `scaleX(${scrolled / 100})`;
 });
-//API for fetching data
+//API for fetching data in my github
 
 const url = "https://raw.githubusercontent.com/Babak-BashirZadeh/quizappAPI/refs/heads/main/app.json";
 
