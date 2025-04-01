@@ -7,6 +7,18 @@ window.addEventListener("scroll", () => {
   progressBar.style.transform = `scaleX(${scrolled / 100})`;
 });
 
+// fetch data
+async function fetchdata() {
+  try {
+    const url = "https://raw.githubusercontent.com/Babak-BashirZadeh/quizappAPI/refs/heads/main/app.json";
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;    
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+fetchdata();
 // question array
 let questions = [];
 
@@ -30,20 +42,10 @@ const player2Score = document.getElementById("player2Score");
 const showQuestionsButton = document.getElementById("showQuestions");
 
 // show questions
-showQuestionsButton.addEventListener("click", (fetchdata) => {
-  async function fetchdata() {
-    try {
-      const url = "https://raw.githubusercontent.com/Babak-BashirZadeh/quizappAPI/refs/heads/main/app.json";
-      const data = await fetch(url);
-      const json = await data.json();
-      console.log(json);
-      questions = json.questions.concat(data);
-      displayQuestions();
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
-
+showQuestionsButton.addEventListener("click", async () => {
+  const data = await fetchdata(); 
+  questions = questions.concat(data);
+  displayQuestions();
   /* fetch(url)
   .then((res) => res.json())
   .then((data) => {
