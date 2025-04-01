@@ -6,9 +6,6 @@ window.addEventListener("scroll", () => {
   const scrolled = (window.scrollY / windowHeight) * 100;
   progressBar.style.transform = `scaleX(${scrolled / 100})`;
 });
-//API for fetching data
-
-const url = "https://raw.githubusercontent.com/Babak-BashirZadeh/quizappAPI/refs/heads/main/app.json";
 
 // question array
 let questions = [];
@@ -33,13 +30,26 @@ const player2Score = document.getElementById("player2Score");
 const showQuestionsButton = document.getElementById("showQuestions");
 
 // show questions
-showQuestionsButton.addEventListener("click", () => {
-  fetch(url)
+showQuestionsButton.addEventListener("click", (fetchdata) => {
+  async function fetchdata() {
+    try {
+      const url = "https://raw.githubusercontent.com/Babak-BashirZadeh/quizappAPI/refs/heads/main/app.json";
+      const data = await fetch(url);
+      const json = await data.json();
+      console.log(json);
+      questions = json.questions.concat(data);
+      displayQuestions();
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  /* fetch(url)
   .then((res) => res.json())
   .then((data) => {
     questions = questions.concat(data);
     displayQuestions();
-  });
+  }); */
 });
 
 // form submit
@@ -92,7 +102,7 @@ function displayQuestions(questionsToShow = questions) {
                   )
                   .join("")}
             </ul>
-            <h3>Explanation: ${question.explanation}</h3>
+            <h3 class="hidden">${question.explanation}</h3>
             <button class="reveal-btn" onclick="revealAnswer(${
               question.id
             })">Show Correct Answer</button>
