@@ -10,10 +10,11 @@ window.addEventListener("scroll", () => {
 // fetch data
 async function fetchdata() {
   try {
-    const url = "https://raw.githubusercontent.com/Babak-BashirZadeh/quizappAPI/refs/heads/main/app.json";
+    const url =
+      "https://raw.githubusercontent.com/Babak-BashirZadeh/quizappAPI/refs/heads/main/app.json";
     const response = await fetch(url);
     const data = await response.json();
-    return data;    
+    return data;
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -21,7 +22,6 @@ async function fetchdata() {
 fetchdata();
 // question array
 let questions = [];
-
 
 // DOM Elements
 const quizForm = document.getElementById("quizForm");
@@ -43,15 +43,9 @@ const showQuestionsButton = document.getElementById("showQuestions");
 
 // show questions
 showQuestionsButton.addEventListener("click", async () => {
-  const data = await fetchdata(); 
+  const data = await fetchdata();
   questions = questions.concat(data);
   displayQuestions();
-  /* fetch(url)
-  .then((res) => res.json())
-  .then((data) => {
-    questions = questions.concat(data);
-    displayQuestions();
-  }); */
 });
 
 // form submit
@@ -109,7 +103,7 @@ function displayQuestions(questionsToShow = questions) {
               question.id
             })">Show Correct Answer</button>
         `;
-             
+
     questionsContainer.appendChild(questionCard);
   });
 }
