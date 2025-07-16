@@ -5,3 +5,6 @@ Broccoli
 Carrot
 tomato
 eggplant
+red Pepper
+Broccoli
+Carrot
