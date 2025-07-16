@@ -7,4 +7,3 @@ tomato
 eggplant
 red Pepper
 Broccoli
-carrot
